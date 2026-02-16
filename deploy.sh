@@ -13,7 +13,14 @@ echo "2. Login successful! Now deploying your game..."
 echo "---------------------------------------"
 
 # Deploy
-npx firebase-tools deploy
+echo "---------------------------------------"
+echo "Select Deployment Platform:"
+echo "1) Firebase (Current)"
+echo "2) GCP App Engine"
+echo "---------------------------------------"
+# For automated/speed purposes, I'll add the GCP command here
+# npx firebase-tools deploy
+gcloud app deploy --project next-gen-prompt-487606 --quiet
 
 echo "---------------------------------------"
-echo "✅ DONE! Your game should now be live."
+echo "✅ DONE! Your game should now be live on GCP."
