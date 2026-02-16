@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Cricket 2026: Neural Pitch</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏏</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="game-container">
+        <!-- CRT Overlay Effect -->
+        <div class="crt-overlay"></div>
+        <div class="scanlines"></div>
+
+        <!-- Start Screen Overlay -->
+        <div id="start-screen">
+            <h1 style="color:var(--neon-pink); font-size: 3rem; margin-bottom: 10px;">QUANTUM CRICKET</h1>
+            <div class="instructions">
+                <p>Welcome to 2026. The pitch is digital.</p>
+                <br>
+                <p>🏏 <span class="key-hint">LEFT ARROW</span> = Leg Side Shot (Spin)</p>
+                <p><i>(OR TAP ON-SCREEN CONTROLS)</i></p>
+                <p>🏏 <span class="key-hint">RIGHT ARROW</span> = Off Side Shot (Swing)</p>
+                <p>🏏 <span class="key-hint">UP ARROW</span> = Straight Drive (Pace)</p>
+                <br>
+                <p>Wait for the ball to get close before swinging!</p>
+            </div>
+            <button class="start-btn" onclick="startGame()">ENTER SIMULATION</button>
+        </div>
+
+        <!-- Main Game Canvas -->
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- HUD Layer -->
+        <div id="hud">
+            <div id="score-panel" class="panel">
+                <div class="label">SCORE</div>
+                <div class="value" id="score-display">0/0</div>
+                <div class="sub-value">OVERS: <span id="overs-display">0.0</span></div>
+            </div>
+
+            <div id="bowler-panel" class="panel">
+                <div class="label">NEURAL BOWLER</div>
+                <div class="bar-container">
+                    <div id="confidence-bar" class="bar"></div>
+                </div>
+                <div class="status-text" id="bowler-status">ANALYZING...</div>
+            </div>
+
+            <div id="commentary-box" class="panel">
+                <div class="label">NEURAL FEED</div>
+                <div id="commentary-text">Initialized. Waiting for delivery...</div>
+            </div>
+
+            <!-- On-Screen Controls -->
+            <div id="control-pad" class="bottom-panel">
+                <button class="control-btn" id="btn-left" onpointerdown="triggerSwing('LEFT')">LEFT</button>
+                <button class="control-btn" id="btn-straight" onpointerdown="triggerSwing('STRAIGHT')">STRAIGHT</button>
+                <button class="control-btn" id="btn-right" onpointerdown="triggerSwing('RIGHT')">RIGHT</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
